@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="com.hibernate.com.lisst.Emp" table="emp_406">
+		<id name="id" column="eid"></id>
+		<property name="name" column="ename"></property>
+		<map name="address" table="address_406" cascade="all">
+			<key column="emp_id"></key>
+			<index column="aid" type="string"></index>
+			<one-to-many class="com.hibernate.com.lisst.Address"/>
+		</map>
+	</class>
+	<class name="com.hibernate.com.lisst.Address" table="address_406">
+		<id name="aid"></id>
+		<property name="street"></property>
+		<property name="zipcode"></property>
+	</class>
+</hibernate-mapping>
+    
